@@ -6,7 +6,7 @@ public class BankAccountRunner {
         BankAccount account2 = new BankAccount("Jim", 600.45);
         BankAccount account3 = new BankAccount("Bob", 0.32);
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner console = new Scanner(System.in);
         String choice = "y";
         while (choice.equals("y")) {
             // Display menu options
@@ -15,7 +15,7 @@ public class BankAccountRunner {
 
             // Get user choice
             System.out.print("What would you like to do? >>> ");
-            int option = scanner.nextInt();
+            int option = console.nextInt();
 
             // Display account list
             System.out.println("\n(1) " + account1.toString());
@@ -24,7 +24,7 @@ public class BankAccountRunner {
 
             // Get selected account
             System.out.print("Select an account >>> ");
-            int accountNumber = scanner.nextInt();
+            int accountNumber = console.nextInt();
             BankAccount selectedAccount = null;
             if (accountNumber == 1) {
                 selectedAccount = account1;
@@ -37,19 +37,19 @@ public class BankAccountRunner {
             // Perform deposit or withdrawal
             if (option == 1) {
                 System.out.print("\nEnter amount >>> $");
-                double amount = scanner.nextDouble();
+                double amount = console.nextDouble();
                 selectedAccount.deposit(amount);
                 System.out.println("Deposit successful. Account details: " + selectedAccount.toString());
             } else if (option == 2) {
                 System.out.print("\nEnter amount >>> $");
-                double amount = scanner.nextDouble();
+                double amount = console.nextDouble();
                 selectedAccount.withdraw(amount);
                 System.out.println("Withdrawal successful. Account details: " + selectedAccount.toString());
             }
 
             // Prompt for another transaction
             System.out.print("Perform another transaction? (y/n) >>> ");
-            choice = scanner.next();
+            choice = console.next();
         }
     }
 }
